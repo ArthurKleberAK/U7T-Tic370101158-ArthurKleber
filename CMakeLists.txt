@@ -43,6 +43,7 @@ add_executable(blink
 target_link_libraries(blink pico_stdlib
         hardware_adc 
         hardware_pwm
+       
 )
 
 if (PICO_CYW43_SUPPORTED)
