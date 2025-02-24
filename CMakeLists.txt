@@ -37,7 +37,7 @@ pico_sdk_init()
 
 add_executable(blink
     blink.c
-    anima.c
+    
     )
 
 # pull in common dependencies
