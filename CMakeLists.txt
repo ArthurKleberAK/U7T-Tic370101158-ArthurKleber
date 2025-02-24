@@ -37,15 +37,18 @@ pico_sdk_init()
 
 add_executable(blink
     blink.c
+    anima.c
     )
 
 # pull in common dependencies
 target_link_libraries(blink pico_stdlib
         hardware_adc 
         hardware_pwm
-       
+        hardware_pio
+	    hardware_adc
+        pico_bootrom
 )
-
+pico_generate_pio_header(blink ${CMAKE_CURRENT_LIST_DIR}/blink.pio)
 if (PICO_CYW43_SUPPORTED)
     target_link_libraries(blink pico_cyw43_arch_none)
 endif()
