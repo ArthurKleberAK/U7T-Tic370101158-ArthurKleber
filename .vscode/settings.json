@@ -40,6 +40,7 @@
         "pwm.h": "c",
         "compare": "c",
         "cstdint": "c",
-        "blink.pio.h": "c"
+        "blink.pio.h": "c",
+        "ssd1306.h": "c"
     }
 }

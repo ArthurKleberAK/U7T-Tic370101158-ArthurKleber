@@ -37,7 +37,7 @@ pico_sdk_init()
 
 add_executable(blink
     blink.c
-    
+    inc/ssd1306.c
     )
 
 # pull in common dependencies
@@ -47,6 +47,7 @@ target_link_libraries(blink pico_stdlib
         hardware_pio
 	    hardware_adc
         pico_bootrom
+        hardware_i2c
 )
 pico_generate_pio_header(blink ${CMAKE_CURRENT_LIST_DIR}/blink.pio)
 if (PICO_CYW43_SUPPORTED)
@@ -58,4 +59,4 @@ pico_add_extra_outputs(blink)
 
 # add url via pico_set_program_url
 pico_enable_stdio_usb(blink 1)
-pico_enable_stdio_uart(blink 0) 
+pico_enable_stdio_uart(blink 01) 
