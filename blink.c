@@ -38,6 +38,7 @@ typedef enum {
     ENCHER_ING1,
     ENCHER_ING2,
     MISTURAR_AQUECER,
+    RESULTADO,
     DRENAR,
     FINALIZAR
 } Estado;
@@ -90,103 +91,103 @@ void desenho_pio1(Cor *desenho, uint32_t valor_led, PIO pio, uint sm) {
 }
 
 
-    Cor matriz_f[25] = {
-    {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0},
-    {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0},
-    {0, 0, 0}, {0, 0, 0}, {10, 0, 40}, {0, 0, 0}, {0, 0, 0},
-    {0, 0, 0}, {10, 0, 40}, {0, 0, 40}, {10, 0, 40}, {0, 0, 0},
-    {10, 0, 40}, {0, 0, 40}, {0, 0, 40}, {0, 0, 40}, {10, 0, 40}
-    };
+Cor matriz_f[25] = {
+{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0},
+{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0},
+{0, 0, 0}, {0, 0, 0}, {10, 0, 40}, {0, 0, 0}, {0, 0, 0},
+{0, 0, 0}, {10, 0, 40}, {0, 0, 40}, {10, 0, 40}, {0, 0, 0},
+{10, 0, 40}, {0, 0, 40}, {0, 0, 40}, {0, 0, 40}, {10, 0, 40}
+};
 
 
-    Cor matriz_0[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}
-    };
-    // Animação do ingrediente 1
-    Cor matriz_1[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,1,1}
-    };
+Cor matriz_0[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}
+};
+// Animação do ingrediente 1
+Cor matriz_1[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,1,1}
+};
 
-    Cor matriz_2[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,1,1}, {0,1,1}
-    };
+Cor matriz_2[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,1,1}, {0,1,1}
+};
 
-    Cor matriz_3[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,1,1}, {0,1,1}, {0,1,1}
-    };
+Cor matriz_3[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,1,1}, {0,1,1}, {0,1,1}
+};
 
-    Cor matriz_4[25] = 
-    {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
-    };
+Cor matriz_4[25] = 
+{
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
+};
 
-    Cor matriz_5[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
-    };
+Cor matriz_5[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
+};
 
-    Cor matriz_6[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,1,1}, 
-    {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
-    };
-    //7
-    Cor matriz_7[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,1,1}, {0,1,1}, 
-    {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
-    };
+Cor matriz_6[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,1,1}, 
+{0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
+};
+//7
+Cor matriz_7[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,1,1}, {0,1,1}, 
+{0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
+};
 
-    Cor matriz_8[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,1,1}, {0,1,1}, {0,1,1}, 
-    {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
-    };
+Cor matriz_8[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,1,1}, {0,1,1}, {0,1,1}, 
+{0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
+};
 
-    Cor matriz_9[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, 
-    {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
-    };
+Cor matriz_9[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, 
+{0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
+};
 
-    Cor matriz_10[25] = {
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
-    {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, 
-    {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
-    };
+Cor matriz_10[25] = {
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0},  
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, 
+{0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}, {0,1,1}
+};
 
 Cor matriz_11[25] =
 {
@@ -277,10 +278,83 @@ Cor matriz_21[25] =
 {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}
 };
 
+Cor matriz_22[25] =
+{
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, 
+{1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, 
+{1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}
+};
+
+Cor matriz_23[25] =
+{
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, 
+{1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}
+};
+
+Cor matriz_24[25] =
+{
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}
+};
+
+Cor matriz_25[25] =
+{
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}
+};
+Cor matriz_26[25] =
+{
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+{0,0,0}, {1,1,6}, {1,1,6}, {1,1,6}, {1,1,6}
+};
+
+Cor matriz_27[25] =
+{
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {1,1,6}, {1,1,6}, {1,1,6}
+};
+
+Cor matriz_28[25] =
+{
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {1,1,6}, {1,1,6}
+};
+
+Cor matriz_29[25] =
+{
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, 
+    {0,0,0}, {0,0,0}, {0,0,0}, {0,0,0}, {1,1,6}
+};
+
+
     // Ponteiro para armazenar a matriz ativa
-    Cor* matrizes[20] = {
+    Cor* matrizes[29] = {
     matriz_1, matriz_2, matriz_3, matriz_4, matriz_5, matriz_6, matriz_7, matriz_8, matriz_9, matriz_10, matriz_11,
-    matriz_12, matriz_13, matriz_14, matriz_15, matriz_16, matriz_17, matriz_18, matriz_19, matriz_20 
+    matriz_12, matriz_13, matriz_14, matriz_15, matriz_16, matriz_17, matriz_18, matriz_19, matriz_20, 
+    matriz_21, matriz_22, matriz_23, matriz_24, matriz_25, matriz_26, matriz_27, matriz_28, matriz_29
     };
 
 
@@ -292,82 +366,61 @@ Cor matriz_21[25] =
             uint64_t tempo_anterior = time_us_64(); // Captura o tempo inicial
             int k = 10;}
 
-// PWM do buzzer para simular um motor 
-void setup_pwm(uint slice_num, uint channel) {
-    // Configura o divisor de clock
-    pwm_set_clkdiv(slice_num, CLOCK_DIV); // Define o divisor de clock
-    pwm_set_wrap(slice_num, WRAP); // Define o valor de wrap
-    pwm_set_enabled(slice_num, true); // Habilita o PWM
-}
-void buzz(uint buzzer_pin, int low_duration, int high_duration) {
-    gpio_set_function(buzzer_pin, GPIO_FUNC_PWM); // Configura o pino como PWM
+// Estrutura para armazenar o estado do PWM
+typedef struct {
+    uint slice_num;   // Número do slice PWM associado ao pino.
+    bool pwm_active;  // Indica se o PWM está ativo ou não.
+} pwm_state_t;
 
-    uint slice_num = pwm_gpio_to_slice_num(buzzer_pin);
-    uint channel = pwm_gpio_to_channel(buzzer_pin);
+// Função de callback do temporizador
+bool pwm_timer_callback(repeating_timer_t *rt) {
+    pwm_state_t *state = (pwm_state_t *)rt->user_data; // Recupera o estado do PWM armazenado em user_data.
 
-    setup_pwm(slice_num, channel); // Configura o PWM
-
-    absolute_time_t start_time;
-    volatile int state = 0; // Estado do buzzer
-    volatile int duration = 0; // Duração do estado atual
-
-    while (state <= 7) {  // Agora o loop garante que será finalizado
-        switch (state) {
-            case 0: // Período baixo
-                pwm_set_chan_level(slice_num, channel, 19532); // 25% de duty cycle
-                duration = low_duration; 
-                start_time = get_absolute_time(); 
-                state = 1;
-                break;
-
-            case 1: // Espera pelo tempo
-                if (absolute_time_diff_us(start_time, get_absolute_time()) >= duration * 1000) {
-                    state = 2;
-                }
-                break;
-
-            case 2: // Período alto
-                pwm_set_chan_level(slice_num, channel, 35157); // 50% de duty cycle
-                duration = high_duration;
-                start_time = get_absolute_time(); 
-                state = 3;
-                break;
-
-            case 3: // Espera pelo tempo
-                if (absolute_time_diff_us(start_time, get_absolute_time()) >= duration * 1000) {
-                    state = 4;
-                }
-                break;
-
-            case 4: // Período baixo novamente
-                pwm_set_chan_level(slice_num, channel, 19532); // 25% de duty cycle
-                duration = low_duration;
-                start_time = get_absolute_time();
-                state = 5;
-                break;
-
-            case 5: // Espera pelo tempo
-                if (absolute_time_diff_us(start_time, get_absolute_time()) >= duration * 1000) {
-                    state = 6;
-                }
-                break;
-
-            case 6: // Desligar o buzzer
-                pwm_set_chan_level(slice_num, channel, 0); // 0% de duty cycle
-                duration = low_duration;
-                start_time = get_absolute_time();
-                state = 7;
-                break;
-
-            case 7: // Espera pelo tempo final e sai
-                if (absolute_time_diff_us(start_time, get_absolute_time()) >= duration * 1000) {
-                    state = 8; // Estado final para sair do loop
-                }
-                break;
-        }
+    if (state->pwm_active) {          // Verifica se o PWM está ativo.
+        pwm_set_enabled(state->slice_num, false); // Desativa o PWM no slice correspondente.
+        state->pwm_active = false;    // Atualiza o estado para indicar que o PWM não está mais ativo.
+        return false;                 // Para o temporizador, pois o PWM foi desativado.
     }
+    return true;                      // Retorna true para continuar o temporizador se o PWM não estava ativo.
 }
 
+// Função para controlar o PWM
+void pwm_control(uint pin, uint duration_ms) {
+    gpio_set_function(pin, GPIO_FUNC_PWM); // Configura o pino especificado para funcionar como saída PWM.  
+    uint slice_num = pwm_gpio_to_slice_num(pin); // Obtém o número do slice PWM associado ao pino.
+    pwm_set_wrap(slice_num, WRAP);       // Configura o valor de wrap para o slice PWM (define o período do sinal).
+    pwm_set_clkdiv(slice_num, CLOCK_DIV); // Configura o divisor de clock para o slice PWM (afeta a frequência).
+    pwm_set_enabled(slice_num, true);    // Ativa o PWM no slice especificado.
+    pwm_set_chan_level(slice_num, PWM_CHAN_A, WRAP / 2); // Define o nível do canal A do PWM para 50% do valor de wrap.
+    // Estrutura para armazenar o estado do PWM
+    pwm_state_t state = {slice_num, true}; // Inicializa a estrutura de estado do PWM.
+
+    // Cria um temporizador que chama pwm_timer_callback após 'duration_ms' milissegundos
+    repeating_timer_t timer;              // Declara um temporizador.
+    add_repeating_timer_ms(duration_ms, pwm_timer_callback, &state, &timer); // Adiciona um temporizador que chama a função de callback.
+}
+
+
+void setup_gpio(){
+    // Inicializa GPIOs
+    gpio_init(BOTAO_B);
+    gpio_init(BOTAO_A);
+    gpio_init(SW);
+    gpio_init(LED_R);
+    gpio_init(LED_G);
+    gpio_init(LED_B);
+    // Define GPIOs como IN ou OUT
+    gpio_set_dir(BOTAO_B, GPIO_IN);
+    gpio_set_dir(BOTAO_A, GPIO_IN);
+    gpio_set_dir(SW, GPIO_IN);
+    gpio_set_dir(LED_R, GPIO_OUT);
+    gpio_set_dir(LED_G, GPIO_OUT);
+    gpio_set_dir(LED_B, GPIO_OUT);
+    // Define botões como pull-up
+    gpio_pull_up(BOTAO_B);
+    gpio_pull_up(BOTAO_A); 
+    gpio_pull_up(SW);   
+}
 
 
 // função principal
@@ -375,25 +428,7 @@ int main()
 {
     stdio_init_all();
     init_display();
-    gpio_init(BOTAO_B);
-    gpio_set_dir(BOTAO_B, GPIO_IN);
-    gpio_pull_up(BOTAO_B);
-
-    gpio_init(BOTAO_A);
-    gpio_set_dir(BOTAO_A, GPIO_IN);
-    gpio_pull_up(BOTAO_A);
-
-    gpio_init(SW);
-    gpio_set_dir(SW, GPIO_IN);
-    gpio_pull_up(SW);
-
-    gpio_init(LED_R);
-    gpio_init(LED_G);
-    gpio_init(LED_B);
-    gpio_set_dir(LED_R, GPIO_OUT);
-    gpio_set_dir(LED_G, GPIO_OUT);
-    gpio_set_dir(LED_B, GPIO_OUT);
-
+    setup_gpio();
 
     // Criação do temporizador
     struct repeating_timer timer;
@@ -408,11 +443,12 @@ int main()
     uint offset = pio_add_program(pio, &blink_program);
     uint sm = pio_claim_unused_sm(pio, true);
     blink_program_init(pio, sm, offset, OUT_PIN);
-
     uint64_t tempo_anterior = time_us_64(); // Captura o tempo inicial
+   // variaveis utilizadas na estrutura de repetição de cada animação da matriz:
     volatile int j = 0;
     volatile int k = 10;
-    // Colocando a maquina no estado inicial que é a espera do botão de start definido como Botâo B
+    volatile int m = 21;
+    // Iniciando a maquina de estado no estado atual
     Estado estado_atual = ESPERA; 
     while (true) {
         
@@ -421,13 +457,13 @@ int main()
             timer_expired = false; // Reseta a flag
             tempo_estado += 100; // Incrementa o tempo em 100 ms
         }
-       
-    
+        
         switch (estado_atual) {
             
             case ESPERA:
             desenho_pio1(matriz_0, valor_led, pio, sm); // Limpa a matriz de Led
-            gpio_put(LED_G, 0);  // LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1
+            
+            //gpio_put(LED_G, 0);  // LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1
             ssd1306_draw_string(&ssd, "Sistema ON ", 8, 10); 
             ssd1306_draw_string(&ssd, " ABERTE ", 8, 30); 
             ssd1306_draw_string(&ssd, "O BOTAO B ", 8, 40 );
@@ -445,7 +481,8 @@ int main()
             break;
             
             case ENCHER_ING1:
-            gpio_put(LED_G, 0);        
+           // gpio_put(LED_G, 0);   
+           
             gpio_put(LED_B, 0);   // LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1            
             while (j < 10) { 
                 uint64_t tempo_atual = time_us_64();       
@@ -454,7 +491,7 @@ int main()
                     desenho_pio1(matrizes[j], valor_led, pio, sm); // Chama a função de desenho
                     j++; // Passa para o próximo quadro da animação               
                 }} 
-            
+             
                     ssd1306_draw_string(&ssd, "FASE 1", 8, 10); 
                     ssd1306_draw_string(&ssd, "CONCLUIDA", 8, 20); 
                     ssd1306_draw_string(&ssd, " ABERTE ", 8, 30); 
@@ -518,10 +555,22 @@ int main()
             gpio_put(LED_B, 0);
            
             // Chama a função buzz com o pino do buzzer e as durações desejadas
-            // buzz(LED_R, 2000, 4000);
-           
-            
+            pwm_control(buzzer,5000);
                                      
+            if (tempo_estado >= 5000) { // 10 segundos  
+                ssd1306_fill(&ssd, false); // false para limpar (preencher com preto)
+                ssd1306_send_data(&ssd); // Atualiza o display            
+                estado_atual = RESULTADO;
+                tempo_estado = 0; // Reseta o tempo do estado
+            }
+            break;
+            
+            case RESULTADO:
+            desenho_pio1(matriz_21, valor_led, pio, sm);
+            ssd1306_draw_string(&ssd, "PROCESSO ", 8, 10); 
+            ssd1306_draw_string(&ssd, " FINALIZADO ", 8, 30); 
+            ssd1306_send_data(&ssd); // Atualiza o display  
+            
             if (tempo_estado >= 5000) { // 10 segundos  
                 ssd1306_fill(&ssd, false); // false para limpar (preencher com preto)
                 ssd1306_send_data(&ssd); // Atualiza o display            
@@ -529,16 +578,26 @@ int main()
                 tempo_estado = 0; // Reseta o tempo do estado
             }
             break;
-            
+
+
             case DRENAR:
-            desenho_pio1(matriz_21, valor_led, pio, sm);
-            ssd1306_draw_string(&ssd, "PROCESSO ", 8, 10); 
-            ssd1306_draw_string(&ssd, " FINALIZADO ", 8, 30); 
+            
+            ssd1306_draw_string(&ssd, "DRENAGEM", 8, 10); 
+            ssd1306_draw_string(&ssd, "INICIALIZADA", 8, 30); 
             ssd1306_send_data(&ssd); // Atualiza o display  
-            if (tempo_estado >= 8000) { // 10 segundos 
-                gpio_put(LED_R, 0);// LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1
-                gpio_put(LED_G, 0);// LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1
-                gpio_put(LED_B, 0);  // LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1
+            while (m < 29) { 
+                uint64_t tempo_atual = time_us_64();
+                    if (tempo_atual - tempo_anterior >= 1000000) { // Se 1 segundo se passou
+                    tempo_anterior = tempo_atual; // Atualiza o tempo de referência
+                    desenho_pio1(matrizes[m], valor_led, pio, sm); // Chama a função de desenho
+                    m++; // Passa para o próximo quadro da animação
+                }}
+            desenho_pio1(matriz_0, valor_led, pio, sm);
+            
+            if (tempo_estado >= 2000) { // 2 segundos 
+               // gpio_put(LED_R, 0);// LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1
+               // gpio_put(LED_G, 0);// LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1
+               // gpio_put(LED_B, 0);  // LEMBRAR DE ALTERAAAAAAAAAAAAAAAAAAAAA PARA 1
                 ssd1306_fill(&ssd, false); // false para limpar (preencher com preto)
                 ssd1306_send_data(&ssd); // Atualiza o display            
                 estado_atual = FINALIZAR;
@@ -547,11 +606,14 @@ int main()
             break;
             
             case FINALIZAR:
-            desenho_pio1(matriz_0, valor_led, pio, sm);
+            ssd1306_draw_string(&ssd, "FIM", 8, 30); 
+            ssd1306_send_data(&ssd); // Atualiza o display 
             if (tempo_estado >= 3000) { // 2  
-            gpio_put(LED_R, 0);
-            gpio_put(LED_G, 0);
-            gpio_put(LED_B, 0);  
+           // gpio_put(LED_R, 0);
+           // gpio_put(LED_G, 0);
+            // gpio_put(LED_B, 0);  
+            ssd1306_fill(&ssd, false); // false para limpar (preencher com preto)
+            ssd1306_send_data(&ssd); // Atualiza o display 
             estado_atual = ESPERA;
             tempo_estado = 0; // Reseta o tempo do estado
             }
